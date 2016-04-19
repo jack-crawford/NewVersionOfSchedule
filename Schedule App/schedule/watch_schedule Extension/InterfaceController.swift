@@ -24,7 +24,7 @@ class InterfaceController: WKInterfaceController {
         timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "loadweb", userInfo: nil, repeats: true)
     }
     func loadweb(){
-        if let url = NSURL(string: "http://localhost:8888/Schedule-Project/mobile.php") {
+        if let url = NSURL(string: "http://hollandhall.net/hhmods/mobile.php") {
             do {
                 let contents = try! NSString(contentsOfURL: url, usedEncoding: nil)
                 let data = contents.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
