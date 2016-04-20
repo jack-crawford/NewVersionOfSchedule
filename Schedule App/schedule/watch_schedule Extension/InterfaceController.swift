@@ -44,7 +44,7 @@ class InterfaceController: WKInterfaceController {
                             if mod == "19" {
                                 letter_day_label.setText("Day")
                                 next_mod_label.setText("ends at")
-                                mod_time_label.setText("3:10!")
+                                mod_time_label.setText("3:10")
                             } else {
                                 if mod == "good morning" {
                                     next_mod_label.setText("Morning")

@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         loadweb()
-                timer = NSTimer.scheduledTimerWithTimeInterval(900, target: self, selector: "loadweb", userInfo: nil, repeats: true)
+                timer = NSTimer.scheduledTimerWithTimeInterval(90, target: self, selector: "loadweb", userInfo: nil, repeats: true)
     }
     func loadmessage(string: String) -> String {
         if let url = NSURL(string: "http://localhost:8888/Schedule-Project/message.php") {
@@ -129,7 +129,7 @@ class ViewController: UIViewController {
                                                 at_label.text = "at"
                                                 letter_display.text = cyc + " Day";
                                                 message_label.text = message;
-                                                today_label.text = ""
+                                                today_label.text = "Today Is"
                                             } else {
                                                 letter_display.text = cyc + " Day";
                                                 message_label.text = message;
