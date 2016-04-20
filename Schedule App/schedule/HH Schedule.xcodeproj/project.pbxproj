@@ -24,6 +24,7 @@
 		046D82011C971A04008B2F22 /* watch_schedule.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 046D81E11C971A04008B2F22 /* watch_schedule.app */; };
 		048A4B491C98929D008CA6B0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048A4B481C98929D008CA6B0 /* Launch Screen.storyboard */; };
 		0499C70E1C73C34A00541C97 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499C70D1C73C34A00541C97 /* Default-568h@2x.png */; };
+		04E555241CC713EF00E48662 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E555231CC713EF00E48662 /* ViewController2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		048A4B451C98694C008CA6B0 /* watch_schedule Extension copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "watch_schedule Extension copy-Info.plist"; path = "/Users/jack/Desktop/app-schedule/schedule/watch_schedule Extension copy-Info.plist"; sourceTree = "<absolute>"; };
 		048A4B481C98929D008CA6B0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0499C70D1C73C34A00541C97 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		04E555231CC713EF00E48662 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController2.swift; path = ../ViewController2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 		040902351C6E440C007072C2 /* schedule */ = {
 			isa = PBXGroup;
 			children = (
+				04E555231CC713EF00E48662 /* ViewController2.swift */,
 				048A4B481C98929D008CA6B0 /* Launch Screen.storyboard */,
 				040902361C6E440C007072C2 /* AppDelegate.swift */,
 				040902381C6E440C007072C2 /* ViewController.swift */,
@@ -439,6 +442,7 @@
 			files = (
 				040902391C6E440C007072C2 /* ViewController.swift in Sources */,
 				040902371C6E440C007072C2 /* AppDelegate.swift in Sources */,
+				04E555241CC713EF00E48662 /* ViewController2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

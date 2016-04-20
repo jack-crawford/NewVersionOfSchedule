@@ -50,7 +50,7 @@ class ViewController: UIViewController {
                 timer = NSTimer.scheduledTimerWithTimeInterval(900, target: self, selector: "loadweb", userInfo: nil, repeats: true)
     }
     func loadmessage(string: String) -> String {
-        if let url = NSURL(string: "http://localhost:8888/Schedule-Project/message.php") {
+        if let url = NSURL(string: "http://hollandhall.net/hhmods/message.php") {
             do {
                 let contents = try NSString(contentsOfURL: url, usedEncoding: nil)
                 return contents as String
@@ -65,7 +65,7 @@ class ViewController: UIViewController {
     }
     func loadweb(){
         print("loadweb started")
-        if let url = NSURL(string: "http://localhost:8888/Schedule-Project/mobile.php") {
+        if let url = NSURL(string: "http://hollandhall.net/hhmods/mobile.php") {
             do {
                 let contents = try! NSString(contentsOfURL: url, usedEncoding: nil)
                 let data = contents.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
