@@ -49,8 +49,9 @@
                                 <items>
                                     <navigationItem id="IGT-tC-6jH">
                                         <nil key="title"/>
+                                        <barButtonItem key="leftBarButtonItem" id="H0H-9Q-yUb"/>
                                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DDU-Sl-NAV">
-                                            <rect key="frame" x="129" y="2" width="62" height="40"/>
+                                            <rect key="frame" x="8" y="2" width="304" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="menubuttonwhite">
                                                 <color key="titleColor" red="0.98452793949999995" green="1" blue="0.96769204119999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -88,6 +89,12 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="50"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0by-hU-v4i">
+                                <rect key="frame" x="221" y="31" width="79" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
+                                <color key="textColor" red="0.46274509800000002" green="0.67450980390000004" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -129,6 +136,7 @@
                         <outlet property="mod_display" destination="x1W-gD-QMO" id="3I1-t2-UkI"/>
                         <outlet property="next_mod_time_label" destination="sB6-TN-6Aa" id="Kto-Ys-NZN"/>
                         <outlet property="today_label" destination="RsR-Ky-fpJ" id="dIU-Ed-gkT"/>
+                        <outlet property="touch_count" destination="0by-hU-v4i" id="a9B-zc-xxw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

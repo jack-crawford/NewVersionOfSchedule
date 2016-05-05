@@ -107,11 +107,8 @@
 		046D81FA1C971A04008B2F22 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
 		046D81FC1C971A04008B2F22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		046D81FE1C971A04008B2F22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		048A4B2A1C9868C2008CA6B0 /* schedule copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "schedule copy-Info.plist"; path = "/Users/jack/Desktop/app-schedule/schedule/schedule copy-Info.plist"; sourceTree = "<absolute>"; };
-		048A4B371C9868CE008CA6B0 /* watch_schedule copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "watch_schedule copy-Info.plist"; path = "/Users/jack/Desktop/app-schedule/schedule/watch_schedule copy-Info.plist"; sourceTree = "<absolute>"; };
-		048A4B451C98694C008CA6B0 /* watch_schedule Extension copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "watch_schedule Extension copy-Info.plist"; path = "/Users/jack/Desktop/app-schedule/schedule/watch_schedule Extension copy-Info.plist"; sourceTree = "<absolute>"; };
 		048A4B481C98929D008CA6B0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
-		0499C70D1C73C34A00541C97 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		0499C70D1C73C34A00541C97 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,16 +146,12 @@
 		0409022A1C6E440C007072C2 = {
 			isa = PBXGroup;
 			children = (
-				0499C70D1C73C34A00541C97 /* Default-568h@2x.png */,
 				040902351C6E440C007072C2 /* schedule */,
 				0409024A1C6E440C007072C2 /* scheduleTests */,
 				040902551C6E440C007072C2 /* scheduleUITests */,
 				046D81E21C971A04008B2F22 /* watch_schedule */,
 				046D81F11C971A04008B2F22 /* watch_schedule Extension */,
 				040902341C6E440C007072C2 /* Products */,
-				048A4B2A1C9868C2008CA6B0 /* schedule copy-Info.plist */,
-				048A4B371C9868CE008CA6B0 /* watch_schedule copy-Info.plist */,
-				048A4B451C98694C008CA6B0 /* watch_schedule Extension copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,6 +175,7 @@
 				040902381C6E440C007072C2 /* ViewController.swift */,
 				0409023A1C6E440C007072C2 /* Main.storyboard */,
 				0409023D1C6E440C007072C2 /* Assets.xcassets */,
+				0499C70D1C73C34A00541C97 /* Default-568h@2x.png */,
 				040902421C6E440C007072C2 /* Info.plist */,
 			);
 			path = schedule;
@@ -341,7 +335,7 @@
 				TargetAttributes = {
 					040902321C6E440C007072C2 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 6G79V3PWFM;
+						DevelopmentTeam = F85P44L248;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -358,10 +352,11 @@
 					};
 					046D81E01C971A04008B2F22 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = HPMNKBV2JG;
+						DevelopmentTeam = F85P44L248;
 					};
 					046D81EC1C971A04008B2F22 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = F85P44L248;
 					};
 				};
 			};
@@ -601,13 +596,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = schedule/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jack.schedule;
+				PRODUCT_BUNDLE_IDENTIFIER = "Holland-Hall-Schedule";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -615,13 +612,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = schedule/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jack.schedule;
+				PRODUCT_BUNDLE_IDENTIFIER = "Holland-Hall-Schedule";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -676,9 +675,10 @@
 		046D82031C971A04008B2F22 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "watch_schedule Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jack.schedule.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = "Holland-Hall-Schedule";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -690,9 +690,10 @@
 		046D82041C971A04008B2F22 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "watch_schedule Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jack.schedule.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = "Holland-Hall-Schedule";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -710,7 +711,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = watch_schedule_Extension;
 				INFOPLIST_FILE = watch_schedule/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = jack.schedule.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = "Holland-Hall-Schedule";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -728,7 +729,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = watch_schedule_Extension;
 				INFOPLIST_FILE = watch_schedule/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = jack.schedule.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = "Holland-Hall-Schedule";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;

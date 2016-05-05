@@ -27,7 +27,7 @@ class InterfaceController: WKInterfaceController {
         if let url = NSURL(string: "http://hollandhall.net/hhmods/mobile.php") {
             do {
                 let contents = try! NSString(contentsOfURL: url, usedEncoding: nil)
-                let data = contents.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
+                let data = contents.dataUsingEncoding(NSISOLatin1StringEncoding, allowLossyConversion: false)!
                 do {
                     let todaysDate:NSDate = NSDate()
                     let dateFormatter:NSDateFormatter = NSDateFormatter()
@@ -65,9 +65,13 @@ class InterfaceController: WKInterfaceController {
                                                 letter_day_label.setText("No")
                                                 mod_time_label.setText("Today!")
                                             } else {
-                                                letter_day_label.setText(cyc);
-                                                next_mod_label.setText(mod);
-                                                mod_time_label.setText(mod_time);
+                                                    let cycstr = cyc! + "";
+                                                    letter_day_label.setText(cycstr);
+                                                
+                                                    let modstr = mod! + "";
+                                                next_mod_label.setText(modstr);
+                                                    let timestr = mod_time! + "";
+                                                mod_time_label.setText(timestr);
                                             }
                                         }
                                     }

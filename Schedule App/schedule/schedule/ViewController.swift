@@ -8,6 +8,7 @@
 
 import UIKit
 class ViewController: UIViewController {
+    @IBOutlet weak var touch_count: UILabel!
     @IBOutlet weak var today_label: UILabel!
     @IBOutlet weak var at_label: UILabel!
     @IBOutlet weak var letter_display: UILabel!
@@ -19,10 +20,18 @@ class ViewController: UIViewController {
     let schoolblue = UIColor(red:0.54, green:0.73, blue:0.87, alpha:1.0)
     var timer = NSTimer()
 
-    
+    var counter = 0;
     
     @IBAction func menubutton(sender: AnyObject) {
-        if today_label.textColor == UIColor.blackColor() {
+        if today_label.textColor == schoolred {
+            today_label.textColor = UIColor.blackColor();
+            at_label.textColor = UIColor.blackColor();
+            letter_display.textColor = UIColor.blackColor();
+            next_mod_time_label.textColor = UIColor.blackColor();
+            mod_display.textColor = UIColor.blackColor();
+            message_label.textColor = UIColor.blackColor();
+            self.view.backgroundColor = UIColor.whiteColor();
+        } else {
             today_label.textColor = schoolred;
             at_label.textColor = UIColor.whiteColor();
             letter_display.textColor = schoolred;
@@ -30,24 +39,19 @@ class ViewController: UIViewController {
             mod_display.textColor = schoolblue;
             message_label.textColor = schoolblue;
             self.view.backgroundColor = UIColor.blackColor()
-        } else {
-            today_label.textColor = UIColor.blackColor();
-            at_label.textColor = UIColor.blackColor();
-            letter_display.textColor = UIColor.blackColor();
-            next_mod_time_label.textColor = UIColor.blackColor();
-            mod_display.textColor = UIColor.blackColor();
-            message_label.textColor = UIColor.blackColor();
-            self.view.backgroundColor = UIColor.whiteColor()
         }
         print("button")
-        loadweb()
+        counter = counter + 1;
+        var counter_text = String(counter);
+        touch_count.text = counter_text;
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         loadweb()
-                timer = NSTimer.scheduledTimerWithTimeInterval(90, target: self, selector: "loadweb", userInfo: nil, repeats: true)
+                timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "loadweb", userInfo: nil, repeats: true)
     }
     func loadmessage(string: String) -> String {
         if let url = NSURL(string: "http://hollandhall.net/hhmods/message.php") {
@@ -154,8 +158,6 @@ class ViewController: UIViewController {
         }
     }
     
-
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
