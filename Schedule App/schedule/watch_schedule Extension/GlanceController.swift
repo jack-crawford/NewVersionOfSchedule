@@ -20,7 +20,8 @@ class GlanceController: WKInterfaceController {
         super.awakeWithContext(context)
         // Configure interface object
     // Configure interface object
-    timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "loadweb", userInfo: nil, repeats: true)
+        loadweb()
+    timer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: "loadweb", userInfo: nil, repeats: true)
 }
 func loadweb(){
     if let url = NSURL(string: "http://hollandhall.net/hhmods/mobile.php") {
@@ -40,6 +41,10 @@ func loadweb(){
                         let cyc = dict["cycleval"] as? String
                         let mod = dict["mod"] as? String
                         let mod_time = dict["modstart"] as? String
+                        print(mod);
+                        print(cyc);
+                        print(mod_time);
+                        
                         if mod == "19" {
                             letter_day_label.setText("Day")
                             next_mod_label.setText("ends at")
@@ -89,7 +94,7 @@ func loadweb(){
 
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
+            super.willActivate()
     }
 
     override func didDeactivate() {
