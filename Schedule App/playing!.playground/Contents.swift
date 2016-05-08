@@ -2,11 +2,10 @@
 
 import UIKit
 
-NSURL * url = [NSURL URLWithString:@"https://api.github.com/users/mralexgray/repos"];
 
-NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
-dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-NSLog(@"data size %ld", (unsigned long)data.length);
-}];
-
-[downloadTask resume];
+let todaysDate:NSDate = NSDate()
+let dateFormatter:NSDateFormatter = NSDateFormatter()
+dateFormatter.dateFormat = "EEE"
+print(dateFormatter)
+let DateInDayFormat:String = dateFormatter.stringFromDate(todaysDate)
+print(DateInDayFormat)

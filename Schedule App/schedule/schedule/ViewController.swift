@@ -78,10 +78,10 @@ class ViewController: UIViewController {
                     let todaysDate:NSDate = NSDate()
                     let dateFormatter:NSDateFormatter = NSDateFormatter()
                     dateFormatter.dateFormat = "EEE"
+                    let DateInDayFormat:String = dateFormatter.stringFromDate(todaysDate)
                     //the hour format
                     let hourFormatter:NSDateFormatter = NSDateFormatter()
                     hourFormatter.dateFormat = "H"
-                    let DateInDayFormat:String = dateFormatter.stringFromDate(todaysDate)
                     let DateInHourFormat:String = hourFormatter.stringFromDate(todaysDate)
                     //the month format
                     let monthFormatter:NSDateFormatter = NSDateFormatter()
@@ -136,6 +136,7 @@ class ViewController: UIViewController {
                                     mod_display.text = "No School"
                                     next_mod_time_label.text = "Today!"
                                     message_label.text = message
+                                    message_label.adjustsFontSizeToFitWidth = true
                                     print("over")
                                     visual_separation.text = ""
                                     date_label.text = "";
@@ -146,6 +147,8 @@ class ViewController: UIViewController {
                                         letter_display.text = cyc + " Day";
                                         mod_display.text = "Morning Meeting"
                                         mod_display.adjustsFontSizeToFitWidth = true
+                                        message_label.text = message
+                                        message_label.adjustsFontSizeToFitWidth = true
 
                                         next_mod_time_label.text = "8:45"
                                         date_label.text = dateInDisplayForm;
@@ -158,6 +161,8 @@ class ViewController: UIViewController {
                                             mod_display.sizeToFit()
                                             next_mod_time_label.text = "8:00"
                                             date_label.text = dateInDisplayForm;
+                                            message_label.adjustsFontSizeToFitWidth = true
+                                            message_label.text = message
                                         } else {
                                         if mod == "over" {
                                             //this is after school
@@ -167,6 +172,8 @@ class ViewController: UIViewController {
                                             next_mod_time_label.adjustsFontSizeToFitWidth = true
 
                                             message_label.text = message
+                                            message_label.adjustsFontSizeToFitWidth = true
+
                                             print("over")
                                             visual_separation.text = "";
                                             date_label.text = "";
@@ -178,9 +185,12 @@ class ViewController: UIViewController {
                                                 letter_display.text = cyc + " Day";
                                                 message_label.text = message;
                                                 date_label.text = dateInDisplayForm;
+                                                message_label.adjustsFontSizeToFitWidth = true
+
                                             } else {
                                                 letter_display.text = cyc + " Day";
                                                 message_label.text = message;
+                                                message_label.adjustsFontSizeToFitWidth = true
                                                 mod_display.text = "Mod " + mod;
                                                 next_mod_time_label.text = mod_time;
                                                 date_label.text = dateInDisplayForm;
