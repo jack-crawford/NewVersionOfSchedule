@@ -1,4 +1,4 @@
-    //
+//
 //  ViewController.swift
 //  schedule
 //
@@ -31,8 +31,6 @@ class ViewController: UIViewController {
             date_label.textColor = UIColor.blackColor();
             visual_separation.textColor = UIColor.blackColor();
             self.view.backgroundColor = uiwhite;
-            UIApplication.sharedApplication().statusBarStyle = .Default
-
         } else {
             date_label.textColor = uiwhite;
             visual_separation.textColor = schoolred;
@@ -41,8 +39,6 @@ class ViewController: UIViewController {
             mod_display.textColor = schoolblue;
             message_label.textColor = schoolblue;
             self.view.backgroundColor = UIColor.blackColor()
-            UIApplication.sharedApplication().statusBarStyle = .LightContent
-
         }
         print("button")
         counter = counter + 1;
