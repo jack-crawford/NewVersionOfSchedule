@@ -31,6 +31,8 @@ class ViewController: UIViewController {
             date_label.textColor = UIColor.blackColor();
             visual_separation.textColor = UIColor.blackColor();
             self.view.backgroundColor = uiwhite;
+            UIApplication.sharedApplication().statusBarStyle = .Default
+
         } else {
             date_label.textColor = uiwhite;
             visual_separation.textColor = schoolred;
@@ -39,6 +41,7 @@ class ViewController: UIViewController {
             mod_display.textColor = schoolblue;
             message_label.textColor = schoolblue;
             self.view.backgroundColor = UIColor.blackColor()
+            UIApplication.sharedApplication().statusBarStyle = .LightContent
         }
         print("button")
         counter = counter + 1;
@@ -124,7 +127,7 @@ class ViewController: UIViewController {
                             if DateInDayFormat == "Sat" || DateInDayFormat == "Sun" {
                                 //display weekend labels
                                 letter_display.text = "Monday";
-                                mod_display.text = cyc + "day";
+                                mod_display.text = cyc + " day";
                                 next_mod_time_label.text = "";
                                 date_label.text = "will be"
                                 message_label.text = "";
@@ -156,9 +159,9 @@ class ViewController: UIViewController {
                                      else {
                                         if timeAsaNumber <= 8.00 && DateInDayFormat != "Wed" && DateInDayFormat != "Sat" && DateInDayFormat != "Sun"{
                                             //morning meeting begins at 8:00
-                                            letter_display.text = cyc + "Day";
+                                            letter_display.text = cyc + " Day";
                                             mod_display.text = "Morning meeting"
-                                            mod_display.sizeToFit()
+                                            mod_display.adjustsFontSizeToFitWidth = true;
                                             next_mod_time_label.text = "8:00"
                                             date_label.text = dateInDisplayForm;
                                             message_label.adjustsFontSizeToFitWidth = true
@@ -170,10 +173,8 @@ class ViewController: UIViewController {
                                             mod_display.text = "School is out"
                                             next_mod_time_label.text = "for the day";
                                             next_mod_time_label.adjustsFontSizeToFitWidth = true
-
                                             message_label.text = message
                                             message_label.adjustsFontSizeToFitWidth = true
-
                                             print("over")
                                             visual_separation.text = "";
                                             date_label.text = "";
@@ -188,6 +189,16 @@ class ViewController: UIViewController {
                                                 message_label.adjustsFontSizeToFitWidth = true
 
                                             } else {
+                                                if mod == "finals" {
+                                                    letter_display.text = "Finals"
+                                                    message_label.text = message;
+                                                    message_label.adjustsFontSizeToFitWidth = true
+                                                    mod_display.text = "Good Luck"
+                                                    next_mod_time_label.text = "Today";
+                                                    date_label.text = dateInDisplayForm
+                                                    visual_separation.text = "";
+                                                    
+                                                } else {
                                                 letter_display.text = cyc + " Day";
                                                 message_label.text = message;
                                                 message_label.adjustsFontSizeToFitWidth = true
@@ -204,7 +215,8 @@ class ViewController: UIViewController {
                     } else {
                         print("Could not parse JSON: \(error!)")
                     }
-                } catch let error as NSError {
+                }
+                }catch let error as NSError {
                     print("Failed to load: \(error.localizedDescription)")
                 }
             
