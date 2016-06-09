@@ -23,9 +23,11 @@ class InterfaceController: WKInterfaceController {
         super.awakeWithContext(context)
         // Configure interface object
         loadweb()
-        print("called loadweb first time");
-        timer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: "loadweb", userInfo: nil, repeats: true)
-        print("this is after the timer?");
+//        //print("called loadweb first time");
+//
+         timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "loadweb", userInfo: nil, repeats: true)
+
+                //print("this is after the timer?");
     }
 
     
@@ -36,8 +38,34 @@ class InterfaceController: WKInterfaceController {
         print("started loadweb")
         if let url = NSURL(string: "http://hollandhall.net/hhmods/mobile.php") {
             do {
-                let contents = try! NSString(contentsOfURL: url, usedEncoding: nil)
+                //let contents = try! NSString(contentsOfURL: url, usedEncoding: nil)
                 print("tried contents");
+               
+                let requestURL: NSURL = url
+                let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
+                let session = NSURLSession.sharedSession()
+                let task = session.dataTaskWithRequest(urlRequest) {
+                    (data, response, error) -> Void in
+                    
+                    if error == nil {
+                        print(data);
+                        print("Success!");
+                        
+                        
+                    } else {
+                        
+                        print("Fail")
+                        
+                    }
+                    
+                }
+                
+                task.resume()
+                
+                
+                
+                let contents = ""
+                
                 let data = contents.dataUsingEncoding(NSISOLatin1StringEncoding, allowLossyConversion: false)!
                 print("encoded contents");
                 do {
@@ -56,24 +84,24 @@ class InterfaceController: WKInterfaceController {
                             let cyc = dict["cycleval"] as? String
                             let mod = dict["mod"] as? String
                             let mod_time = dict["modstart"] as? String
-                            print(cyc)
-                            print(mod)
-                            print(mod_time)
+                            //print(cyc)
+                            //print(mod)
+                            //print(mod_time)
                             if mod == "19" {
                                 letter_day_label.setText("Day")
                                 next_mod_label.setText("ends at")
                                 mod_time_label.setText("3:10")
-                                print("mod 19");
+                                //print("mod 19");
                             } else {
                                 if mod == "good morning" {
                                     next_mod_label.setText("Morning")
                                     letter_day_label.setText("Good")
                                     mod_time_label.setText("Dutch")
-                                    print("good morning");
+                                    //print("good morning");
                                 } else {
                                     if DateInDayFormat == "Sat" || DateInDayFormat == "Sun" {
                                         //happy weekend message
-                                        print("today's a saturday")
+                                        //print("today's a saturday")
                                     } else {
                                         if mod == "over"{
                                             next_mod_label.setText("is")
@@ -85,9 +113,9 @@ class InterfaceController: WKInterfaceController {
                                                 next_mod_label.setText("School")
                                                 letter_day_label.setText("No")
                                                 mod_time_label.setText("Today!")
-                                                print("no school")
+                                                //print("no school")
                                             } else {
-                                                print("school day");
+                                                //print("school day");
                                                     let cycstr = cyc! + "";
                                                     letter_day_label.setText(cycstr);
                                                 
@@ -102,12 +130,24 @@ class InterfaceController: WKInterfaceController {
                             }
                         }else {
                             print("not a dictionary")
+                            next_mod_label.setText("Oops")
+                            letter_day_label.setText("Oops")
+                            mod_time_label.setText("Oops")
+
                         }
                     } else {
                         print("Could not parse JSON: \(error!)")
+                        next_mod_label.setText("Oops")
+                        letter_day_label.setText("Oops")
+                        mod_time_label.setText("Oops")
+
                     }
                 } catch let error as NSError {
                     print("Failed to load: \(error.localizedDescription)")
+                    next_mod_label.setText("Oops")
+                    letter_day_label.setText("Oops")
+                    mod_time_label.setText("Oops")
+
                 }
             }
         }

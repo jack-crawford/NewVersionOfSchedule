@@ -19,11 +19,19 @@ class GlanceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         // Configure interface object
-    // Configure interface object
+        // Configure interface object
         loadweb()
-    timer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: "loadweb", userInfo: nil, repeats: true)
-}
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            // do some task
+            dispatch_async(dispatch_get_main_queue()) {
+                // update some UI
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "loadweb", userInfo: nil, repeats: true)
+            }
+        }
+    }
 func loadweb(){
+    print("started loadweb");
     if let url = NSURL(string: "http://hollandhall.net/hhmods/mobile.php") {
         do {
             let contents = try! NSString(contentsOfURL: url, usedEncoding: nil)
@@ -95,6 +103,7 @@ func loadweb(){
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
             super.willActivate()
+        loadweb();
     }
 
     override func didDeactivate() {

@@ -54,7 +54,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         loadweb()
-                timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "loadweb", userInfo: nil, repeats: true)
+        //timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "loadweb", userInfo: nil, repeats: true)
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            // do some task
+            dispatch_async(dispatch_get_main_queue()) {
+                // update some UI
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "loadweb", userInfo: nil, repeats: true)
+            }
+        }
     }
     func loadmessage(string: String) -> String {
         if let url = NSURL(string: "http://hollandhall.net/hhmods/message.php") {
@@ -70,12 +78,14 @@ class ViewController: UIViewController {
             return ""
         }
     }
-    func loadweb(){
+    
+    func loadweb() {
         print("loadweb started")
         if let url = NSURL(string: "http://hollandhall.net/hhmods/mobile.php") {
             do {
                 let contents = try! NSString(contentsOfURL: url, usedEncoding: nil)
                 let data = contents.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
+        
                 do {
                     //the abbreviated weekday format
                     let todaysDate:NSDate = NSDate()
@@ -97,7 +107,6 @@ class ViewController: UIViewController {
                     //the weekday format
                     let weekdayFormatter:NSDateFormatter = NSDateFormatter()
                     weekdayFormatter.dateFormat = "EEEE"
-                    let DateInWeekDayFormat:String = weekdayFormatter.stringFromDate(todaysDate)
                     //the minute format
                     let minuteFormatter:NSDateFormatter = NSDateFormatter()
                     minuteFormatter.dateFormat = "m"
@@ -126,10 +135,10 @@ class ViewController: UIViewController {
                             
                             if DateInDayFormat == "Sat" || DateInDayFormat == "Sun" {
                                 //display weekend labels
-                                letter_display.text = "Monday";
-                                mod_display.text = cyc + " day";
+                                letter_display.text = "It's";
+                                mod_display.text = "Weekend";
                                 next_mod_time_label.text = "";
-                                date_label.text = "will be"
+                                date_label.text = "The"
                                 message_label.text = "";
                                 visual_separation.text = "";
                                 
@@ -178,51 +187,52 @@ class ViewController: UIViewController {
                                             print("over")
                                             visual_separation.text = "";
                                             date_label.text = "";
+                                    } else {
+                                        if mod == "19"{
+                                            //this is before 3:10 but after mod 18 has begun
+                                            mod_display.text = "School ends"
+                                            next_mod_time_label.text = "3:10"
+                                            letter_display.text = cyc + " Day";
+                                            message_label.text = message;
+                                            date_label.text = dateInDisplayForm;
+                                            message_label.adjustsFontSizeToFitWidth = true
+                                                
                                         } else {
-                                            if mod == "19"{
-                                                //this is before 3:10 but after mod 18 has begun
-                                                mod_display.text = "School ends"
-                                                next_mod_time_label.text = "3:10"
-                                                letter_display.text = cyc + " Day";
+                                            if mod == "finals" {
+                                                letter_display.text = "Finals"
                                                 message_label.text = message;
-                                                date_label.text = dateInDisplayForm;
                                                 message_label.adjustsFontSizeToFitWidth = true
-
-                                            } else {
-                                                if mod == "finals" {
-                                                    letter_display.text = "Finals"
-                                                    message_label.text = message;
-                                                    message_label.adjustsFontSizeToFitWidth = true
-                                                    mod_display.text = "Good Luck"
-                                                    next_mod_time_label.text = "Today";
-                                                    date_label.text = dateInDisplayForm
-                                                    visual_separation.text = "";
+                                                mod_display.text = "Good Luck"
+                                                next_mod_time_label.text = "Today";
+                                                date_label.text = dateInDisplayForm
+                                                visual_separation.text = "";
                                                     
-                                                } else {
-                                                letter_display.text = cyc + " Day";
-                                                message_label.text = message;
-                                                message_label.adjustsFontSizeToFitWidth = true
-                                                mod_display.text = "Mod " + mod;
-                                                next_mod_time_label.text = mod_time;
-                                                date_label.text = dateInDisplayForm;
-                                            }
+                                            } else {
+                                            letter_display.text = cyc + " Day";
+                                            message_label.text = message;
+                                            message_label.adjustsFontSizeToFitWidth = true
+                                            mod_display.text = "Mod " + mod;
+                                            next_mod_time_label.text = mod_time;
+                                            date_label.text = dateInDisplayForm;
                                         }
                                     }
                                 }
                             }
                         }
-                        }
-                    } else {
-                        print("Could not parse JSON: \(error!)")
                     }
+                    }
+                } else {
+                    print("Could not parse JSON: \(error!)")
                 }
-                }catch let error as NSError {
-                    print("Failed to load: \(error.localizedDescription)")
-                }
-            
+            }
+            }catch let error as NSError {
+                print("Failed to load: \(error.localizedDescription)")
             }
         }
+        }
     }
+
+
     
 
     override func didReceiveMemoryWarning() {

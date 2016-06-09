@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040880E41D0A030E00F2190A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040880E31D0A030E00F2190A /* StoreKit.framework */; };
 		040902371C6E440C007072C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040902361C6E440C007072C2 /* AppDelegate.swift */; };
 		040902391C6E440C007072C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040902381C6E440C007072C2 /* ViewController.swift */; };
 		0409023C1C6E440C007072C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0409023A1C6E440C007072C2 /* Main.storyboard */; };
@@ -24,9 +25,17 @@
 		046D82011C971A04008B2F22 /* watch_schedule.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 046D81E11C971A04008B2F22 /* watch_schedule.app */; };
 		048A4B491C98929D008CA6B0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048A4B481C98929D008CA6B0 /* Launch Screen.storyboard */; };
 		0499C70E1C73C34A00541C97 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499C70D1C73C34A00541C97 /* Default-568h@2x.png */; };
+		04D5B5781D09FD290092816D /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D5B5771D09FD290092816D /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		040880E01D0A010D00F2190A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0409022B1C6E440C007072C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 046D81EC1C971A04008B2F22;
+			remoteInfo = "watch_schedule Extension";
+		};
 		040902481C6E440C007072C2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0409022B1C6E440C007072C2 /* Project object */;
@@ -83,6 +92,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		040880E31D0A030E00F2190A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		040902331C6E440C007072C2 /* schedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = schedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		040902361C6E440C007072C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		040902381C6E440C007072C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +119,7 @@
 		046D81FE1C971A04008B2F22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		048A4B481C98929D008CA6B0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0499C70D1C73C34A00541C97 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		04D5B5771D09FD290092816D /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +127,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04D5B5781D09FD290092816D /* GameKit.framework in Frameworks */,
+				040880E41D0A030E00F2190A /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +159,8 @@
 		0409022A1C6E440C007072C2 = {
 			isa = PBXGroup;
 			children = (
+				040880E31D0A030E00F2190A /* StoreKit.framework */,
+				04D5B5771D09FD290092816D /* GameKit.framework */,
 				040902351C6E440C007072C2 /* schedule */,
 				0409024A1C6E440C007072C2 /* scheduleTests */,
 				040902551C6E440C007072C2 /* scheduleUITests */,
@@ -246,6 +261,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				040880E11D0A010D00F2190A /* PBXTargetDependency */,
 				046D82001C971A04008B2F22 /* PBXTargetDependency */,
 			);
 			name = schedule;
@@ -337,8 +353,14 @@
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = F85P44L248;
 						SystemCapabilities = {
-							com.apple.Push = {
+							com.apple.GameCenter = {
 								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 0;
 							};
 						};
 					};
@@ -357,6 +379,14 @@
 					046D81EC1C971A04008B2F22 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = F85P44L248;
+						SystemCapabilities = {
+							com.apple.OMC = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -467,6 +497,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		040880E11D0A010D00F2190A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 046D81EC1C971A04008B2F22 /* watch_schedule Extension */;
+			targetProxy = 040880E01D0A010D00F2190A /* PBXContainerItemProxy */;
+		};
 		040902491C6E440C007072C2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 040902321C6E440C007072C2 /* schedule */;
@@ -526,7 +561,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: jackcrawford2008@gmail.com (5ZG5W9PT97)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jackcrawford2008@gmail.com (5ZG5W9PT97)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -548,6 +584,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.hollandhall.HHSchedule;
+				PRODUCT_NAME = "HH Schedule";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -571,7 +610,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: jackcrawford2008@gmail.com (5ZG5W9PT97)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jackcrawford2008@gmail.com (5ZG5W9PT97)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -586,6 +626,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = org.hollandhall.HHSchedule;
+				PRODUCT_NAME = "HH Schedule";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -601,8 +644,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = schedule/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Holland-Hall-Schedule";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.hollandhall.HHSchedule;
+				PRODUCT_NAME = schedule;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -617,8 +660,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = schedule/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Holland-Hall-Schedule";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.hollandhall.HHSchedule;
+				PRODUCT_NAME = schedule;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -676,10 +719,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "watch_schedule Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Holland-Hall-Schedule";
+				PRODUCT_BUNDLE_IDENTIFIER = org.hollandhall.HHSchedule.watch.extension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -691,10 +736,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "watch_schedule Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Holland-Hall-Schedule";
+				PRODUCT_BUNDLE_IDENTIFIER = org.hollandhall.HHSchedule.watch.extension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -711,7 +758,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = watch_schedule_Extension;
 				INFOPLIST_FILE = watch_schedule/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = "Holland-Hall-Schedule";
+				PRODUCT_BUNDLE_IDENTIFIER = org.hollandhall.HHSchedule.watch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -729,7 +776,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = watch_schedule_Extension;
 				INFOPLIST_FILE = watch_schedule/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = "Holland-Hall-Schedule";
+				PRODUCT_BUNDLE_IDENTIFIER = org.hollandhall.HHSchedule.watch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
