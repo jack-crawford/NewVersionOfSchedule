@@ -53,6 +53,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        letter_display.text = "Oops";
+        mod_display.text = "Oops"
+        next_mod_time_label.text = "Oops"
+        message_label.text = "Oops"
+        message_label.adjustsFontSizeToFitWidth = true
+        print("over")
+        visual_separation.text = "Oops"
+        date_label.text = "Oops";
         loadweb()
         //timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "loadweb", userInfo: nil, repeats: true)
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
@@ -124,25 +132,27 @@ class ViewController: UIViewController {
                     print(DateInHourFormat)
                     print("time as a number is " + timeAsaString);
                     
-                    if let jsonObject: AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: []) {
-                        if let dict = jsonObject as? NSDictionary {
-                            print(dict)
-                            let cyc = dict["cycleval"] as! String
-                            let mod = dict["mod"] as! String
-                            let mod_time = dict["modstart"] as? String
-                            print(DateInDayFormat)
-                            let message = loadmessage("test")
+                        let message = loadmessage("test")
                             
-                            if DateInDayFormat == "Sat" || DateInDayFormat == "Sun" {
-                                //display weekend labels
-                                letter_display.text = "It's";
-                                mod_display.text = "Weekend";
-                                next_mod_time_label.text = "";
-                                date_label.text = "The"
-                                message_label.text = "";
-                                visual_separation.text = "";
-                                
-                            } else {
+                        if DateInDayFormat == "Sat" || DateInDayFormat == "Sun" {
+                            //display weekend labels
+                            letter_display.text = " It's the weekend. ";
+                            letter_display.adjustsFontSizeToFitWidth = true
+                            mod_display.text = "No";
+                            next_mod_time_label.text = "School!";
+                            date_label.text = ""
+                            message_label.text = "";
+                            visual_separation.text = "———————"
+                            
+                        } else {
+                            if let jsonObject: AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: []) {
+                                if let dict = jsonObject as? NSDictionary {
+                                    print(dict)
+                                    let cyc = dict["cycleval"] as! String
+                                    let mod = dict["mod"] as! String
+                                    let mod_time = dict["modstart"] as? String
+                                    print(DateInDayFormat)
+                                    
                                 if mod == "no school" {
                                     letter_display.text = dateInDisplayForm;
                                     mod_display.text = "No School"
@@ -161,7 +171,7 @@ class ViewController: UIViewController {
                                         mod_display.adjustsFontSizeToFitWidth = true
                                         message_label.text = message
                                         message_label.adjustsFontSizeToFitWidth = true
-
+                                        visual_separation.text = "———————"
                                         next_mod_time_label.text = "8:45"
                                         date_label.text = dateInDisplayForm;
                                     }
@@ -196,7 +206,9 @@ class ViewController: UIViewController {
                                             message_label.text = message;
                                             date_label.text = dateInDisplayForm;
                                             message_label.adjustsFontSizeToFitWidth = true
-                                                
+                                            visual_separation.text = "———————"
+
+                                            
                                         } else {
                                             if mod == "finals" {
                                                 letter_display.text = "Finals"
@@ -214,6 +226,7 @@ class ViewController: UIViewController {
                                             mod_display.text = "Mod " + mod;
                                             next_mod_time_label.text = mod_time;
                                             date_label.text = dateInDisplayForm;
+                                            visual_separation.text = "———————"
                                         }
                                     }
                                 }
@@ -223,10 +236,27 @@ class ViewController: UIViewController {
                     }
                 } else {
                     print("Could not parse JSON: \(error!)")
+                    letter_display.text = "Oops";
+                    mod_display.text = ""
+                    next_mod_time_label.text = ""
+                    message_label.text = ""
+                    message_label.adjustsFontSizeToFitWidth = true
+                    print("over")
+                    visual_separation.text = ""
+                    date_label.text = dateInDisplayForm;
+
                 }
             }
             }catch let error as NSError {
                 print("Failed to load: \(error.localizedDescription)")
+                letter_display.text = "Oops";
+                mod_display.text = ""
+                next_mod_time_label.text = ""
+                message_label.text = ""
+                message_label.adjustsFontSizeToFitWidth = true
+                print("over")
+                visual_separation.text = ""
+                date_label.text = "";
             }
         }
         }

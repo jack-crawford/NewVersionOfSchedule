@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		040880E41D0A030E00F2190A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040880E31D0A030E00F2190A /* StoreKit.framework */; };
 		040902371C6E440C007072C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040902361C6E440C007072C2 /* AppDelegate.swift */; };
 		040902391C6E440C007072C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040902381C6E440C007072C2 /* ViewController.swift */; };
 		0409023C1C6E440C007072C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0409023A1C6E440C007072C2 /* Main.storyboard */; };
@@ -25,7 +24,6 @@
 		046D82011C971A04008B2F22 /* watch_schedule.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 046D81E11C971A04008B2F22 /* watch_schedule.app */; };
 		048A4B491C98929D008CA6B0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048A4B481C98929D008CA6B0 /* Launch Screen.storyboard */; };
 		0499C70E1C73C34A00541C97 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0499C70D1C73C34A00541C97 /* Default-568h@2x.png */; };
-		04D5B5781D09FD290092816D /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D5B5771D09FD290092816D /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +90,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		040880E31D0A030E00F2190A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		040902331C6E440C007072C2 /* schedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = schedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		040902361C6E440C007072C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		040902381C6E440C007072C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -119,7 +116,6 @@
 		046D81FE1C971A04008B2F22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		048A4B481C98929D008CA6B0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0499C70D1C73C34A00541C97 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
-		04D5B5771D09FD290092816D /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +123,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04D5B5781D09FD290092816D /* GameKit.framework in Frameworks */,
-				040880E41D0A030E00F2190A /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,8 +153,6 @@
 		0409022A1C6E440C007072C2 = {
 			isa = PBXGroup;
 			children = (
-				040880E31D0A030E00F2190A /* StoreKit.framework */,
-				04D5B5771D09FD290092816D /* GameKit.framework */,
 				040902351C6E440C007072C2 /* schedule */,
 				0409024A1C6E440C007072C2 /* scheduleTests */,
 				040902551C6E440C007072C2 /* scheduleUITests */,
@@ -354,10 +346,10 @@
 						DevelopmentTeam = F85P44L248;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.InAppPurchase = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Push = {
 								enabled = 0;
@@ -722,7 +714,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "watch_schedule Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.hollandhall.HHSchedule.watch.extension;
+				PRODUCT_BUNDLE_IDENTIFIER = org.hollandhall.HHSchedule.watchkit.extension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
@@ -739,7 +731,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "watch_schedule Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.hollandhall.HHSchedule.watch.extension;
+				PRODUCT_BUNDLE_IDENTIFIER = org.hollandhall.HHSchedule.watchkit.extension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
@@ -758,7 +750,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = watch_schedule_Extension;
 				INFOPLIST_FILE = watch_schedule/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = org.hollandhall.HHSchedule.watch;
+				PRODUCT_BUNDLE_IDENTIFIER = org.hollandhall.HHSchedule.watchkit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -776,7 +768,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = watch_schedule_Extension;
 				INFOPLIST_FILE = watch_schedule/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = org.hollandhall.HHSchedule.watch;
+				PRODUCT_BUNDLE_IDENTIFIER = org.hollandhall.HHSchedule.watchkit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
