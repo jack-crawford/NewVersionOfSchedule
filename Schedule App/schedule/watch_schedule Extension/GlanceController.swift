@@ -21,14 +21,23 @@ class GlanceController: WKInterfaceController {
         // Configure interface object
         // Configure interface object
         loadweb()
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "loadweb", userInfo: nil, repeats: true)
-        
-        
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            // do some task
+            dispatch_async(dispatch_get_main_queue()) {
+                // update some UI
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "loadweb", userInfo: nil, repeats: true)
+            }
+        }
     }
-    func loadweb(){
-        print("started loadweb")
-        if let url = NSURL(string: "http://hollandhall.net/hhmods/mobile.php") {
+func loadweb(){
+    print("started loadweb");
+    if let url = NSURL(string: "http://hollandhall.net/hhmods/mobile.php") {
+        do {
+            let contents = try! NSString(contentsOfURL: url, usedEncoding: nil)
+            let data = contents.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
             do {
+<<<<<<< HEAD
                 let contents = try! NSString(contentsOfURL: url, usedEncoding: nil)
                 print("tried contents");
                 
@@ -147,27 +156,78 @@ class GlanceController: WKInterfaceController {
                                                     }
                                                 }
                                             }
+=======
+                let todaysDate:NSDate = NSDate()
+                let dateFormatter:NSDateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "EEE"
+                let DateInDayFormat:String = dateFormatter.stringFromDate(todaysDate)
+                
+                var error:NSError? = nil
+                if let jsonObject: AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: []) {
+                    if let dict = jsonObject as? NSDictionary {
+                        print(dict)
+                        let cyc = dict["cycleval"] as? String
+                        let mod = dict["mod"] as? String
+                        let mod_time = dict["modstart"] as? String
+                        print(mod);
+                        print(cyc);
+                        print(mod_time);
+                        
+                        if mod == "19" {
+                            letter_day_label.setText("Day")
+                            next_mod_label.setText("ends at")
+                            mod_time_label.setText("3:10!")
+                        } else {
+                            if mod == "good morning" {
+                                next_mod_label.setText("Morning")
+                                letter_day_label.setText("Good")
+                                mod_time_label.setText("Dutch")
+                                
+                            } else {
+                                if DateInDayFormat == "Sat" || DateInDayFormat == "Sun" {
+                                    //happy weekend message
+                                } else {
+                                    if mod == "over"{
+                                        next_mod_label.setText("is")
+                                        letter_day_label.setText("School")
+                                        mod_time_label.setText("Out!")
+                                    } else {
+                                        if mod == "no school" {
+                                            next_mod_label.setText("School")
+                                            letter_day_label.setText("No")
+                                            mod_time_label.setText("Today!")
+                                        } else {
+                                            letter_day_label.setText(cyc);
+                                            next_mod_label.setText(mod);
+                                            mod_time_label.setText(mod_time);
+>>>>>>> parent of 23a5cf2... stuff!
                                         }
                                     }
                                 }
                             }
+<<<<<<< HEAD
                         } else {
                             print("not a dictionary")
                             next_mod_label.setText("Dict")
                             letter_day_label.setText("Oops")
                             mod_time_label.setText("Oops")
                         }
+=======
+                        }
+                    }else {
+                        print("not a dictionary")
+>>>>>>> parent of 23a5cf2... stuff!
                     }
-                } catch let error as NSError {
-                    print("Failed to load: \(error.localizedDescription)")
-                    next_mod_label.setText("Oops")
-                    letter_day_label.setText("Oops")
-                    mod_time_label.setText("Oops")
-                    
+                } else {
+                    print("Could not parse JSON: \(error!)")
                 }
+            } catch let error as NSError {
+                print("Failed to load: \(error.localizedDescription)")
             }
         }
     }
+    
+}
 
     
 
