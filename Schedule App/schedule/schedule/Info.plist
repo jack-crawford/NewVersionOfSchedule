@@ -16,7 +16,11 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<string>1.2.7</string>
+=======
+	<string>1.2.3</string>
+>>>>>>> parent of 23a5cf2... stuff!
 =======
 	<string>1.2.3</string>
 >>>>>>> parent of 23a5cf2... stuff!

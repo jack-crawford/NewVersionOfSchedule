@@ -38,6 +38,7 @@ func loadweb(){
             let data = contents.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
             do {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 let contents = try! NSString(contentsOfURL: url, usedEncoding: nil)
                 print("tried contents");
                 
@@ -162,6 +163,13 @@ func loadweb(){
                 dateFormatter.dateFormat = "EEE"
                 let DateInDayFormat:String = dateFormatter.stringFromDate(todaysDate)
                 
+=======
+                let todaysDate:NSDate = NSDate()
+                let dateFormatter:NSDateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "EEE"
+                let DateInDayFormat:String = dateFormatter.stringFromDate(todaysDate)
+                
+>>>>>>> parent of 23a5cf2... stuff!
                 var error:NSError? = nil
                 if let jsonObject: AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: []) {
                     if let dict = jsonObject as? NSDictionary {
@@ -200,11 +208,15 @@ func loadweb(){
                                             letter_day_label.setText(cyc);
                                             next_mod_label.setText(mod);
                                             mod_time_label.setText(mod_time);
+<<<<<<< HEAD
+>>>>>>> parent of 23a5cf2... stuff!
+=======
 >>>>>>> parent of 23a5cf2... stuff!
                                         }
                                     }
                                 }
                             }
+<<<<<<< HEAD
 <<<<<<< HEAD
                         } else {
                             print("not a dictionary")
@@ -212,6 +224,11 @@ func loadweb(){
                             letter_day_label.setText("Oops")
                             mod_time_label.setText("Oops")
                         }
+=======
+                        }
+                    }else {
+                        print("not a dictionary")
+>>>>>>> parent of 23a5cf2... stuff!
 =======
                         }
                     }else {
@@ -228,8 +245,11 @@ func loadweb(){
     }
     
 }
+<<<<<<< HEAD
 
     
+=======
+>>>>>>> parent of 23a5cf2... stuff!
 
 
     override func willActivate() {
